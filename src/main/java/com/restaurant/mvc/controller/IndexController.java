@@ -14,5 +14,4 @@ public class IndexController {
         modelView.setViewName("index");
         return modelView;
     }
-
 }
