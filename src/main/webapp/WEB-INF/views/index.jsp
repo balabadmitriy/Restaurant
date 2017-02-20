@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Welcome</title>
-    <%--<jsp:include page="styles.jsp"/>--%>
+    <jsp:include page="styles.jsp"/>
 </head>
 <body>
 <div class="container">
@@ -12,6 +12,6 @@
         <a class="btn btn-default btn-lg btn-block" href="${s:mvcUrl('getRegistration').build()}">Registration</a>
     </div>
 </div>
-<%--<jsp:include page="scripts.jsp"/>--%>
+<jsp:include page="scripts.jsp"/>
 </body>
 </html>

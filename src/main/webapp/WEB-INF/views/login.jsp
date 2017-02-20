@@ -1,47 +1,33 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
+<head>
+    <title>Login</title>
+    <jsp:include page="styles.jsp"/>
 
-<%@ include file="header.jsp" %>
+</head>
+<body>
+${requestScope.errorMessage}
 
 <div class="container">
-    <h2>Login</h2>
-    <div class="row">
-        <div class="col-sm-6 col-sm-push-3">
 
-            <sf:form modelAttribute="user" action="${formHandler}" cssClass="form-horizontal">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Login</div>
-                    <div class="panel-body">
-
-                        <div class="form-group">
-                            <label for="login" class="col-sm-3 control-label"><s:message code="reg.login"></s:message></label>
-                            <div class="col-sm-9">
-                                <sf:input path="login" cssClass="form-control"/>
-                            </div>
-                            <sf:errors path="login" cssClass="error"/>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="login" class="col-sm-3 control-label"><s:message code="reg.password"></s:message></label>
-                            <div class="col-sm-9">
-                                <sf:password path="password" cssClass="form-control" />
-                            </div>
-                            <sf:errors path="password" cssClass="error"/>
-                        </div>
-
-                    </div>
-
-                    <div class="panel-footer text-center">
-                        <button type="submit" class="btn btn-primary"><s:message code="reg.submit"/></button>
-                    </div>
-
-                </div>
-            </sf:form>
-
+    <form class="form-signin" action="/login" method="POST">
+        <h2 class="form-signin-heading">Please login</h2>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" name="login" class="form-control" placeholder="Login">
         </div>
-    </div>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    </form>
+
 </div>
 
-<%@ include file="footer.jsp" %>
+<jsp:include page="scripts.jsp"/>
+</body>
+</html>
