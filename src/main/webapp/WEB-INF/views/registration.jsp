@@ -10,24 +10,30 @@
 <body>
 <h3 class="text-danger">${requestScope.errorMessage}</h3>
 <div class="container">
-    <sf:form modelAttribute="user" cssClass="form-signin" action="${formHandler}">
+    <sf:form modelAttribute="client" cssClass="form-signin" action="${formHandler}">
         <h2 class="form-signin-heading">Registration</h2>
         <div>
-            <label for="name" class="text-muted"><s:message code="reg.username"/></label>
-            <sf:input type="text" cssClass="form-control" path="name"/>
-            <sf:errors path="name" cssClass="error"/>
+            <label for="fio" class="text-muted"><s:message code="reg.username"/></label>
+            <sf:input type="text" cssClass="form-control" path="fio"/>
+            <sf:errors path="fio" cssClass="error"/>
         </div>
 
         <div>
-            <label for="login" class="text-muted"><s:message code="reg.login"/></label>
-            <sf:input path="login" type="text" cssClass="form-control"/>
-            <sf:errors path="login" cssClass="error"/>
-        </div>
-
-        <div>
-            <label for="password" class="text-muted"><s:message code="reg.password"/></label>
-            <sf:input path="password" cssClass="form-control"/>
+            <label for="password" class="text-muted"><s:message code="reg.login"/></label>
+            <sf:input path="password" type="text" cssClass="form-control"/>
             <sf:errors path="password" cssClass="error"/>
+        </div>
+
+        <div>
+            <label for="emailClient" class="text-muted"><s:message code="reg.password"/></label>
+            <sf:input path="emailClient" cssClass="form-control"/>
+            <sf:errors path="emailClient" cssClass="error"/>
+        </div>
+
+        <div>
+            <label for="addressDelivery" class="text-muted"><s:message code="reg.password"/></label>
+            <sf:input path="addressDelivery" cssClass="form-control"/>
+            <sf:errors path="addressDelivery" cssClass="error"/>
         </div>
 
         <div>
