@@ -12,10 +12,7 @@ import javax.servlet.ServletRegistration;
 
 
 public class AppInitilizer implements WebApplicationInitializer {
-    static{
-        System.out.println("dsssssssssssssssssssssssssssssss");
-    }
-    @Override
+       @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         WebApplicationContext context = getContext();
 

@@ -9,6 +9,7 @@ import com.restaurant.mvc.dto.ClientDTO;
 public class ClientConverterUtil {
 
     public static Client convertClientDTOToClient(ClientDTO newClient) {
+        System.out.println("SSSSSSSSSSSSSSSSSSSSSS");
         Client c = new Client();
         c.setFio(newClient.getFio());
         c.setPassword(newClient.getPassword());

@@ -17,7 +17,7 @@ public class Client {
     private Integer id;
 
     @Column(name = "date_of_registration")
-    @Temporal(value = TemporalType.DATE)
+    @Temporal(value = TemporalType.TIMESTAMP)
     private Date dateOfRegistration;
 
     @Column(name = "address_delivery")
@@ -43,7 +43,6 @@ public class Client {
 
     public Client(String fio) {
         this.fio = fio;
-        this.dateOfRegistration = new Date();
     }
 
     public Client() {

@@ -19,9 +19,8 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET, name = "getRegistration")
     public ModelAndView getRegistration(@ModelAttribute("client") @Validated Client client) {
-
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("formHandler", "/registration");
+        modelAndView.addObject("formHandler", "/restaurant/registration");
         modelAndView.setViewName("registration");
 
         return modelAndView;
@@ -33,7 +32,6 @@ public class RegistrationController {
 
         registrationService.createUser(client);
         modelAndView.setViewName("redirect:login");
-
         return modelAndView;
     }
 }

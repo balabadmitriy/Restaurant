@@ -17,7 +17,7 @@ ${requestScope.errorMessage}
         <h2 class="form-signin-heading">Please login</h2>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" name="login" class="form-control" placeholder="Login">
+            <input type="text" name="name" class="form-control" placeholder="Name">
         </div>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>

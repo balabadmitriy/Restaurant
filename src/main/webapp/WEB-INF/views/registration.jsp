@@ -19,22 +19,17 @@
         </div>
 
         <div>
-            <label for="password" class="text-muted"><s:message code="reg.login"/></label>
-            <sf:input path="password" type="text" cssClass="form-control"/>
+            <label for="password" class="text-muted"><s:message code="reg.password"/></label>
+            <sf:input path="password" type="password" cssClass="form-control"/>
             <sf:errors path="password" cssClass="error"/>
         </div>
 
         <div>
-            <label for="emailClient" class="text-muted"><s:message code="reg.password"/></label>
+            <label for="emailClient" class="text-muted"><s:message code="reg.emailClient"/></label>
             <sf:input path="emailClient" cssClass="form-control"/>
             <sf:errors path="emailClient" cssClass="error"/>
         </div>
 
-        <div>
-            <label for="addressDelivery" class="text-muted"><s:message code="reg.password"/></label>
-            <sf:input path="addressDelivery" cssClass="form-control"/>
-            <sf:errors path="addressDelivery" cssClass="error"/>
-        </div>
 
         <div>
             <button class="btn btn-lg btn-primary btn-block" type="submit"><s:message code="reg.submit"/></button>
