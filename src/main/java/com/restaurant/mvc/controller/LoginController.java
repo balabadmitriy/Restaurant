@@ -1,34 +1,84 @@
 package com.restaurant.mvc.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import com.restaurant.mvc.dto.ClientDTO;
+import com.restaurant.mvc.service.IndexService;
+import com.restaurant.mvc.service.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import javax.servlet.http.HttpSession;
+
+@RestController
 public class LoginController {
 
-/*    @Autowired
-    LoginService loginService;*/
+    @Autowired
+    LoginService loginService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET, name = "getLogin")
-    public ModelAndView getLogin() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
-    }
+    @Autowired
+    IndexService indexService;
+/*
+    @RequestMapping(value = "/login", method = RequestMethod.POST, name = "postLogin")
+    public String postLogin(@RequestParam(value = "login") @Validated String login,
+                            @RequestParam(value = "password") @Validated String password,
+                            HttpSession session) {
+        System.out.println("login = " + login);
+        System.out.println("password = " + password);
 
-   /* @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam(value = "login") String login,
-                        @RequestParam(value = "password") String password, HttpSession session) {
-        ClientDTO userDTO = loginService.verifyLogin(login, password);
-        if (userDTO == null) {
-            session.setAttribute("errorMessage", "User doesn't exist");
+        ClientDTO clientDTO = loginService.verifyLogin(login.substring(1,login.length())
+                , password.substring(1,password.length()));
+
+        if (clientDTO == null) {
+            session.setAttribute("errorMessage", "Login incorrect");
             return "redirect:login";
         }
-        if (userDTO.getRole() == Role.ADMIN) {
+
+        session.setAttribute("success", "Successfully logged in");
+        session.setAttribute("client", clientDTO);
+        if (clientDTO.getRole().getNameRole().equals("ADMINISTRATOR") == true) {
             return "redirect:admin";
         }
-        return "redirect:chat";
+        return "redirect:profile";
     }*/
+
+
+
+/*
+    @RequestMapping(value = "/myjquery",method = RequestMethod.POST,produces = "text/html")
+    public @ResponseBody String postAjax(@RequestParam("login") String login,
+                                         HttpSession session) {
+        ClientDTO clientDTO = loginService.verifyLogin(login);
+
+        if (clientDTO == null) {
+            return "{\"login\":\"no\",\"gotourl\":\"\"}";
+        }
+        session.setAttribute("success", "Successfully logged in");
+        session.setAttribute("client", clientDTO);
+        if (clientDTO.getRole().getNameRole().equals("ADMINISTRATOR") == true) {
+            return "{\"login\":\"yes\",\"gotourl\":\"admin\"}";
+        }
+        return "{\"login\":\"yes\",\"gotourl\":\"profile\"}";
+    }
+*/
+
+    @RequestMapping(value = "/myjquery",method = RequestMethod.POST,produces = "text/html")
+    public @ResponseBody String postAjax(@RequestParam(value = "login") @Validated String login,
+                            @RequestParam(value = "password") @Validated String password,
+                            HttpSession session) {
+
+        ClientDTO clientDTO = loginService.verifyLogin(login,password);
+
+        if (clientDTO == null) {
+            return "no";
+        }
+
+        session.setAttribute("success", "Successfully logged in");
+        session.setAttribute("client", clientDTO);
+        if (clientDTO.getRole().getNameRole().equals("ADMINISTRATOR") == true) {
+            return "admin";
+        }
+        return "profile";
+    }
+
+
 }

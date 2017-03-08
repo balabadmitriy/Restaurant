@@ -6,7 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Setter @Getter
 @Entity(name = "clients")
@@ -28,6 +27,10 @@ public class Client {
     private String fio;
 
     @NonNull
+    @Column(name = "login")
+    private String login;
+
+    @NonNull
     @Column(name = "password")
     private String password;
 
@@ -35,11 +38,15 @@ public class Client {
     @PrimaryKeyJoinColumn
     private Bill bill;
 
-    @OneToMany(mappedBy = "client")
-    private List<PhoneClient> phoneClients;
+    @Column(name = "phone_clients")
+    private String  phoneClient;
 
-    @Column(name = "client")
+    @Column(name = "email")
     private String emailClient;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     public Client(String fio) {
         this.fio = fio;

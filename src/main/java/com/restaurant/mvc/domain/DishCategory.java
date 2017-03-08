@@ -19,4 +19,7 @@ public class DishCategory {
 
     @OneToMany(mappedBy = "category")
     private List<Dish> dish;
+
+    @OneToOne
+    Role role;
 }

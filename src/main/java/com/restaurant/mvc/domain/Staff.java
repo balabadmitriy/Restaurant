@@ -3,7 +3,6 @@ package com.restaurant.mvc.domain;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +36,7 @@ public class Staff {
     private Boolean freeMan;
 
     @OneToMany(mappedBy = "staff")
-    private List<Bill> bills = new ArrayList<>();
+    private List<Bill> bill;
 
 
 }

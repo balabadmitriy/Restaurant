@@ -9,27 +9,30 @@ import com.restaurant.mvc.dto.ClientDTO;
 public class ClientConverterUtil {
 
     public static Client convertClientDTOToClient(ClientDTO newClient) {
-        System.out.println("SSSSSSSSSSSSSSSSSSSSSS");
         Client c = new Client();
         c.setFio(newClient.getFio());
+        c.setLogin(newClient.getLogin());
         c.setPassword(newClient.getPassword());
         c.setAddressDelivery(newClient.getAddressDelivery());
         c.setBill(newClient.getBill());
         c.setEmailClient(newClient.getEmailClient());
         c.setDateOfRegistration(newClient.getDateOfRegistration());
-        c.setPhoneClients(newClient.getPhoneClients());
+        c.setPhoneClient(newClient.getPhoneClient());
+        c.setRole(newClient.getRole());
         return c;
     }
 
     public static ClientDTO convertClientToClientDTO(Client newClient) {
         ClientDTO c = new ClientDTO();
         c.setFio(newClient.getFio());
+        c.setLogin(newClient.getLogin());
         c.setPassword(newClient.getPassword());
         c.setAddressDelivery(newClient.getAddressDelivery());
         c.setBill(newClient.getBill());
         c.setEmailClient(newClient.getEmailClient());
         c.setDateOfRegistration(newClient.getDateOfRegistration());
-        c.setPhoneClients(newClient.getPhoneClients());
+        c.setPhoneClient(newClient.getPhoneClient());
+        c.setRole(newClient.getRole());
         return c;
     }
 

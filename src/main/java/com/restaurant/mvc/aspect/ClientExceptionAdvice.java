@@ -9,7 +9,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpSession;
 
 @ControllerAdvice
-public class ClientExceptionAdvice {
+public class  ClientExceptionAdvice {
 
     @ExceptionHandler(value = ClientServiceException.class)
     public String getRegistration(ClientServiceException e){

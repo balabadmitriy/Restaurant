@@ -1,35 +1,35 @@
 package com.restaurant.mvc.dto;
 
 import com.restaurant.mvc.domain.Bill;
-import com.restaurant.mvc.domain.PhoneClient;
+import com.restaurant.mvc.domain.Role;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Scope;
 
-import javax.validation.constraints.Pattern;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
-
+@Scope("session")
 public class ClientDTO {
 
     private Date dateOfRegistration;
 
     private String addressDelivery;
 
-    @Pattern(regexp = "\\w{3,}", message = "Name incorrect")
     private String fio;
 
+    private String login;
 
     private String password;
 
     private Bill bill;
 
-    private List<PhoneClient> phoneClients;
-
+    private String  phoneClient;
 
     private String emailClient;
+
+    private Role role;
 
     public ClientDTO() {
         this.dateOfRegistration = new Date();

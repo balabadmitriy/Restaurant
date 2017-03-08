@@ -25,7 +25,7 @@ public class Order {
     @PrimaryKeyJoinColumn
     private PaymentMethod paymentMethod;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "statusorders")
     private StatusOrder statusOrder;
 

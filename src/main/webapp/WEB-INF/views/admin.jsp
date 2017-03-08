@@ -1,16 +1,36 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Stepan
-  Date: 18.02.2017
-  Time: 19:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Admin</title>
-</head>
-<body>
-<h2>Admin</h2>
-</body>
-</html>
+
+<jsp:include page="header.jsp"/>
+
+<div class="container">
+    <h2>Basic Table</h2>
+    <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Название меню</th>
+            <th>
+                <button class="btn btn-default input-sm glyphicon glyphicon-plus" onclick="addField()"></button>
+            </th>
+        </tr>
+        </thead>
+        <tbody id="addItemMenu">
+        <tr>
+            <td>
+                <input type="text" class="form-control" id="text">
+            </td>
+            <td>
+                <div class="radio">
+                    <label><input type="radio" name="optradio">Меню клиента</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio">Меню администратора</label>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-success" onclick="addTitleMenu()">Добавить меню</button>
+</div>
+
+<jsp:include page="footer.jsp"/>

@@ -1,7 +1,7 @@
 package com.restaurant.mvc.controller;
 
-import com.restaurant.mvc.domain.Client;
 import com.restaurant.mvc.dto.ClientDTO;
+import com.restaurant.mvc.service.IndexService;
 import com.restaurant.mvc.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +17,12 @@ public class RegistrationController {
     @Autowired
     RegistrationService registrationService;
 
+    @Autowired
+    IndexService indexService;
+
     @RequestMapping(value = "/registration", method = RequestMethod.GET, name = "getRegistration")
-    public ModelAndView getRegistration(@ModelAttribute("client") @Validated Client client) {
+    public ModelAndView getRegistration(@ModelAttribute("client") @Validated ClientDTO client) {
+        indexService.setTitle("Registration");
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("formHandler", "/restaurant/registration");
         modelAndView.setViewName("registration");
@@ -31,7 +35,7 @@ public class RegistrationController {
         ModelAndView modelAndView = new ModelAndView();
 
         registrationService.createUser(client);
-        modelAndView.setViewName("redirect:login");
+        modelAndView.setViewName("redirect:/");
         return modelAndView;
     }
 }

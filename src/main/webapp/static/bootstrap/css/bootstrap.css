@@ -3164,7 +3164,7 @@ fieldset[disabled] .btn-primary:focus,
 .btn-primary[disabled].focus,
 fieldset[disabled] .btn-primary.focus {
   background-color: #337ab7;
-  border-color: #2e6da4;
+  border-color: #2e6da8;
 }
 .btn-primary .badge {
   color: #337ab7;
@@ -4315,7 +4315,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
-@media (min-width: 768px) {
+@media (min-width: 30px) {
   .navbar-toggle {
     display: none;
   }
