@@ -22,7 +22,7 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 src/**/UserServiceException.java
-src/**/__login.jsp
+/src/main/webapp/WEB-INF/views/__login.jsp
 src/**/__404.jsp
 src/**/__footer.jsp
 src/**/__profile.jsp
