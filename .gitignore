@@ -21,7 +21,7 @@
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
-src/main/java/com/restaurant/mvc/exception/UserServiceException.java
+src/**/UserServiceException.java
 src/**/__login.jsp
 src/**/__404.jsp
 src/**/__footer.jsp
