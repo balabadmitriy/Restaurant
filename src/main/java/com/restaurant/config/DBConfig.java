@@ -64,12 +64,12 @@ public class DBConfig {
     }
 
     @Bean
-    public JpaTransactionManager transactionManager(){
-        JpaTransactionManager transactionManager= new JpaTransactionManager();
+    public JpaTransactionManager transactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+
         return transactionManager;
     }
-
     public Properties getHibernateProperties() {
         Properties properties= new Properties();
 

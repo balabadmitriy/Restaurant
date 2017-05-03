@@ -4,12 +4,16 @@ import com.restaurant.mvc.dto.ClientDTO;
 import com.restaurant.mvc.service.IndexService;
 import com.restaurant.mvc.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
-@RestController
+@Controller
 public class LoginController {
 
     @Autowired
@@ -74,10 +78,11 @@ public class LoginController {
 
         session.setAttribute("success", "Successfully logged in");
         session.setAttribute("client", clientDTO);
+        indexService.getItemMenu(clientDTO.getRole().getId());
         if (clientDTO.getRole().getNameRole().equals("ADMINISTRATOR") == true) {
             return "admin";
         }
-        return "profile";
+        return "order";
     }
 
 

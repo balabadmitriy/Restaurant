@@ -10,9 +10,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@Qualifier("category")
+@Qualifier("categoryRepository")
 public interface DishCategoryRepository  extends JpaRepository<DishCategory, Long> {
 
-    @Query("select c from com.restaurant.mvc.domain.DishCategory c where c.role.id = :idRole")
-    List<DishCategory> findCategoryByIdRole(@Param("idRole") Integer idRole);
+    @Query("select c from com.restaurant.mvc.domain.DishCategory c where c.role.id= :idRole")
+    List<DishCategory> findCategoryByIdRole(@Param("idRole") Long idRole);
+
 }

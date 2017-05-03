@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +14,7 @@ public class Staff {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @NonNull
     @Column(name = "fio")
@@ -35,8 +34,6 @@ public class Staff {
     @Column(name = "free_man")
     private Boolean freeMan;
 
-    @OneToMany(mappedBy = "staff")
-    private List<Bill> bill;
 
 
 }

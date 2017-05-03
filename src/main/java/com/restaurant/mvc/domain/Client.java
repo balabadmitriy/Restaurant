@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Setter @Getter
 @Entity(name = "clients")
@@ -13,7 +14,7 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "date_of_registration")
     @Temporal(value = TemporalType.TIMESTAMP)
@@ -34,15 +35,14 @@ public class Client {
     @Column(name = "password")
     private String password;
 
-    @OneToOne
-    @PrimaryKeyJoinColumn
-    private Bill bill;
-
     @Column(name = "phone_clients")
     private String  phoneClient;
 
     @Column(name = "email")
     private String emailClient;
+
+    @OneToMany(mappedBy = "orderForClient",fetch = FetchType.LAZY)
+    private List<Order> order;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "role_id")

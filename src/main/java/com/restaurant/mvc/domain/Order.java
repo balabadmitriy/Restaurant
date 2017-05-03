@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
 import java.util.List;
 
 @Setter @Getter
@@ -15,11 +13,11 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "date_order")
     @Temporal(value = TemporalType.TIMESTAMP)
-    private Calendar dateOrder;
+    private Date dateOrder;
 
     @ManyToOne
     @PrimaryKeyJoinColumn
@@ -29,6 +27,25 @@ public class Order {
     @JoinColumn(name = "statusorders")
     private StatusOrder statusOrder;
 
+    @Column(name = "status_pay_order")
+    private Integer statusPayOrder;
+
+    @Column(name = "numberBill")
+    private Integer nuberBill;
+
+    @ManyToOne
+    private Staff staff;
+
+    @Column(name = "amount_dishes")
+    private Integer amountDishes;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_for_client")
+    private Client orderForClient;
+
+    @Column(name = "sum")
+    private Long sum;
+
     @ManyToMany
     @JoinTable(name = "orders_dishes",
             joinColumns = @JoinColumn(name = "orders_id"),
@@ -36,9 +53,8 @@ public class Order {
     private List<Dish> dishes;
 
     public Order() {
-        this.dateOrder = new GregorianCalendar();
-        this.dishes = new ArrayList<>();
-        System.out.println(this.dateOrder.get(Calendar.YEAR) + " "  + this.dateOrder.get(Calendar.MILLISECOND));
+        this.dateOrder = new Date();
+
     }
 
     public void addDish(Dish dish){

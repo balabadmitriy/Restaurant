@@ -6,7 +6,7 @@ import com.restaurant.mvc.dto.ClientDTO;
 import com.restaurant.mvc.exception.ClientServiceException;
 import com.restaurant.mvc.repository.ClientRepository;
 import com.restaurant.mvc.repository.RoleRepository;
-import com.restaurant.mvc.service.util.ClientConverterUtil;
+import com.restaurant.mvc.service.util.ConverterUtilDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.stereotype.Service;
@@ -35,12 +35,12 @@ public class RegistrationService {
         try{
             Role role = roleRepository.findRoleByName("CLIENT");
 
-            Client client = ClientConverterUtil.convertClientDTOToClient(newClient);
+            Client client = ConverterUtilDTO.convertClientDTOToClient(newClient);
             client.setRole(role);
             clientRepository.save(client);
             ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
             HttpSession session = attributes.getRequest().getSession();
-            session.setAttribute("client",client);
+            session.setAttribute("client",ConverterUtilDTO.convertClientToClientDTO(client));
         } catch (JpaSystemException e) {
             throw new ClientServiceException("Client already exist");
         }

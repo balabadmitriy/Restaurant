@@ -27,4 +27,3 @@ ${requestScope.errorMessage}
 </div>
 
 
-<jsp:include page="footer.jsp"/>
