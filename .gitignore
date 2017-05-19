@@ -28,7 +28,7 @@ src/**/__footer.jsp
 src/**/__profile.jsp
 src/**/__scripts.jsp
 src/**/__styles.jsp
-src/**/__admin.jsp
+src/main/webapp/WEB-INF/views/__admin.jsp
 src/**/_admin.jsp
 
 # Mongo Explorer plugin:
