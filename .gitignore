@@ -21,6 +21,8 @@
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
+
+# delete files unnecessary
 src/**/UserServiceException.java
 src/main/webapp/WEB-INF/views/__login.jsp
 src/main/webapp/WEB-INF/views/__404.jsp
