@@ -1,5 +1,6 @@
 package com.restaurant.init;
 
+import com.restaurant.filters.FilterEncoding;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
@@ -11,7 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 
-public class AppInitilizer implements WebApplicationInitializer {
+public class AppInitilizer implements WebApplicationInitializer{
        @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         WebApplicationContext context = getContext();
@@ -21,6 +22,8 @@ public class AppInitilizer implements WebApplicationInitializer {
                 .addServlet("DispatcherServlet",new DispatcherServlet(context));
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
+        servletContext.addFilter("encoding-filter", FilterEncoding.class)
+                .addMappingForUrlPatterns(null,true,"/*");
     }
 
     private AnnotationConfigWebApplicationContext getContext(){
@@ -28,4 +31,6 @@ public class AppInitilizer implements WebApplicationInitializer {
         context.setConfigLocation("com.restaurant.config");
         return context;
     }
+
+
 }

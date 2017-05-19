@@ -28,7 +28,6 @@ public class ProfileController {
         if (clientDTO != null ){
             indexService.setTitle(clientDTO.getFio());
             profileService.addImg();
-            System.out.println("------------------");
             return profileService.getRedirectModel(clientDTO, modelAndView);
         }
         modelAndView.setViewName("redirect:/");

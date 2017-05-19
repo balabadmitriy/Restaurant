@@ -1,6 +1,5 @@
 package com.restaurant.mvc.dto;
 
-import com.restaurant.mvc.domain.Bill;
 import com.restaurant.mvc.domain.Role;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +21,6 @@ public class ClientDTO {
     private String login;
 
     private String password;
-
-    private Bill bill;
 
     private String  phoneClient;
 

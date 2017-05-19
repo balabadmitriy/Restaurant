@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 @Qualifier("clientRepository")
 public interface ClientRepository extends JpaRepository<Client, Long>{
 
-    @Query("select c from com.restaurant.mvc.domain.Client c where c.login = :login")
+    @Query("select c from com.restaurant.mvc.domain.Client c where c.login= :login")
     Client findUserByLogin(@Param("login") String login);
 }

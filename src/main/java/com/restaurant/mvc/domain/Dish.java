@@ -4,16 +4,17 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Setter @Getter
 @Entity(name = "dishes")
-public class Dish {
+public class Dish  implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -24,6 +25,9 @@ public class Dish {
     @Column(name = "img")
     private String img;
 
+    @Column(name = "price")
+    private Long price;
+
     @Column(name = "composition")
     private String composition;
 
@@ -32,9 +36,6 @@ public class Dish {
 
     @ManyToMany(mappedBy = "dishes")
     private List<Order> order;
-
-    @ManyToMany(mappedBy = "dishes")
-    private List<Bill> bill;
 
     public Dish() {
         this.order = new ArrayList<>();

@@ -21,7 +21,18 @@
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
-src/main/java/com/restaurant/mvc/exception/UserServiceException.java
+
+# delete files unnecessary
+src/**/UserServiceException.java
+src/main/webapp/WEB-INF/views/__login.jsp
+src/main/webapp/WEB-INF/views/__404.jsp
+src/**/__footer.jsp
+src/**/__profile.jsp
+src/**/__scripts.jsp
+src/**/__styles.jsp
+src/main/webapp/WEB-INF/views/__admin.jsp
+src/**/_admin.jsp
+
 
 # Mongo Explorer plugin:
 .idea/**/mongoSettings.xml

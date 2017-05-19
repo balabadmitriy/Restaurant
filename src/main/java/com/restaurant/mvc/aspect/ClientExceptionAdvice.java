@@ -18,4 +18,10 @@ public class  ClientExceptionAdvice {
         session.setAttribute("errorMessage",e.getMessage());
         return "redirect:registration";
     }
+
+/*    @ExceptionHandler({ResourceNotFoundException.class, NoHandlerFoundException.class})
+    public ModelAndView handleError404(HttpServletRequest req, Exception e){
+        ModelAndView view = new ModelAndView("404");
+        return view;
+    }*/
 }
