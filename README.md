@@ -1,3 +1,3 @@
 # Restaurant
 
-Рабочий проект лежит в ветке main
+The Project is in a branch main
