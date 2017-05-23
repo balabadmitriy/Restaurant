@@ -5,7 +5,7 @@
 -- Dumped from database version 9.5.6
 -- Dumped by pg_dump version 9.5.6
 
--- Started on 2017-05-20 13:04:34 EEST
+-- Started on 2017-05-23 21:33:55 EEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -469,11 +469,11 @@ SELECT pg_catalog.setval('categories_id_seq', 16, true);
 -- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO clients VALUES (2, NULL, '2017-03-07 10:55:05.752', 'jhjjhhhhhhhhh', 'Балаба Дмитрий', 's', 's', '6666666666', 0);
-INSERT INTO clients VALUES (3, NULL, '2017-03-28 09:12:43.394', 'vvv@v.com', 'Test', 'v', 'v', '+96854654', 0);
-INSERT INTO clients VALUES (24, NULL, '2017-05-03 10:57:48.304', 'c', 'уцевыавыацу', 'c', 'c', '232', 0);
-INSERT INTO clients VALUES (25, NULL, '2017-05-03 10:59:02.744', 'd', 'авыацуцуцуа', 'd', 'd', '2323', 0);
 INSERT INTO clients VALUES (1, NULL, '2017-03-07 10:51:43.375', 'aaa@sdasdsa.com', 'Администратор', 'admin', 'admin', '12313', 1);
+INSERT INTO clients VALUES (2, NULL, '2017-03-07 10:55:05.752', 'balaba@gmail.com', 'Балаба Дмитрий', 'dima', 'dima', '6666666666', 0);
+INSERT INTO clients VALUES (3, NULL, '2017-03-28 09:12:43.394', 'vvv@v.com', 'Test', 'test', 'test', '+96854654', 0);
+INSERT INTO clients VALUES (24, NULL, '2017-05-03 10:57:48.304', 'test@t.com', 'Еще один человек', 'first', 'first', '232', 0);
+INSERT INTO clients VALUES (25, NULL, '2017-05-03 10:59:02.744', 'test123@aa.ua', 'Русские символы', 'second', 'second', '2323', 0);
 
 
 --
@@ -934,7 +934,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2017-05-20 13:04:35 EEST
+-- Completed on 2017-05-23 21:33:56 EEST
 
 --
 -- PostgreSQL database dump complete
